@@ -1,0 +1,29 @@
+.otherUser {
+  display: flex;
+}
+
+.wrapperOtherUser {
+  margin: 0 200px;
+}
+
+.listOtherUser {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.itemOtherUser {
+  list-style-type: none;
+  margin: 10px 12px;
+}
+
+@media (max-width: 640px) {
+  .wrapperOtherUser {
+    margin: 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .wrapperOtherUser {
+    margin: 0 auto;
+  }
+}

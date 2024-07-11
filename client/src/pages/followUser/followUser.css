@@ -1,0 +1,29 @@
+.followUser {
+  display: flex;
+}
+
+.wrapperFollowUser {
+  margin: 0 200px;
+}
+
+.listFollowUser {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.itemFollowUser {
+  list-style-type: none;
+  margin: 10px 12px;
+}
+
+@media (max-width: 640px) {
+  .wrapperFollowUser {
+    margin: 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .wrapperFollowUser {
+    margin: 0;
+  }
+}

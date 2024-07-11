@@ -1,0 +1,22 @@
+.wrapp {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrapperSideBar {
+  flex: 2.5;
+}
+
+.wrapperContainer {
+  flex: 7.5;
+}
+
+@media (max-width: 640px) {
+  .wrapp {
+    display: block;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+}

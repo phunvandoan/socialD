@@ -1,0 +1,13 @@
+.savePost {
+  width: 90%;
+  margin: auto;
+}
+
+@media (max-width: 640px) {
+  .savePost {
+    width: 100%;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+}

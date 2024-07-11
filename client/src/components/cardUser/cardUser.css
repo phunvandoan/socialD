@@ -1,0 +1,24 @@
+.cardUser {
+  width: 13rem;
+}
+
+.followerOfUser {
+  margin-left: 3px;
+  font-weight: 600;
+}
+
+.itemFollowUseImg {
+  width: 206px;
+  height: 206px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .cardUser {
+    width: 79vw;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+}

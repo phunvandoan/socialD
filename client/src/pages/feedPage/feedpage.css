@@ -1,0 +1,15 @@
+.feedPage {
+  margin: 0 120px;
+}
+
+@media (max-width: 640px) {
+  .feedPage {
+    margin: 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .feedPage {
+    margin: 0 24px;
+  }
+}
