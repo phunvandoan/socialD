@@ -85,7 +85,7 @@ export default function Profile() {
       if (relationshipInputRef.current.value !== ("" && null))
         newUserInfo.relationship = relationshipInputRef.current.value;
       await axios.put(
-        `https://backenddofscocial-1.onrender.com/api/users/${currentUser?._id}`,
+        `https://sociald.onrender.com/api/users/${currentUser?._id}`,
         newUserInfo
       );
       setUser((prevUser) => ({

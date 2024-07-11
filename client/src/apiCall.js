@@ -5,7 +5,7 @@ export const loginCall = async (userCredentail, dispatch) => {
   dispatch({ type: "LOGIN_START" });
   try {
     const res = await axios.post(
-      "https://backenddofscocial-1.onrender.com/api/auth/login",
+      "https://sociald.onrender.com/api/auth/login",
       userCredentail
     );
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
@@ -18,17 +18,13 @@ export const followUser = async (followed, userId, currentUserId, dispatch) => {
   try {
     if (followed) {
       await axios.put(
-        "https://backenddofscocial-1.onrender.com/api/users/" +
-          userId +
-          "/unfollow",
+        "https://sociald.onrender.com/api/users/" + userId + "/unfollow",
         { userId: currentUserId }
       );
       dispatch({ type: "UNFOLLOW", payload: userId });
     } else {
       await axios.put(
-        "https://backenddofscocial-1.onrender.com/api/users/" +
-          userId +
-          "/follow",
+        "https://sociald.onrender.com/api/users/" + userId + "/follow",
         {
           userId: currentUserId,
         }
@@ -42,10 +38,7 @@ export const followUser = async (followed, userId, currentUserId, dispatch) => {
 
 export const register = async (user, navigate) => {
   try {
-    await axios.post(
-      "https://backenddofscocial-1.onrender.com/api/auth/register",
-      user
-    );
+    await axios.post("https://sociald.onrender.com/api/auth/register", user);
     navigate("/login");
   } catch (err) {
     console.log(err);
@@ -55,7 +48,7 @@ export const register = async (user, navigate) => {
 export const getAllUserOther = async (setUserOthers, currentUserId) => {
   try {
     const useOther = await axios.get(
-      `https://backenddofscocial-1.onrender.com/api/users/allUser/${currentUserId}`
+      `https://sociald.onrender.com/api/users/allUser/${currentUserId}`
     );
     setUserOthers(useOther.data);
   } catch (error) {
@@ -65,7 +58,7 @@ export const getAllUserOther = async (setUserOthers, currentUserId) => {
 
 export const getUser = async (userId, setUser) => {
   const res = await axios.get(
-    `https://backenddofscocial-1.onrender.com/api/users?userId=${userId}`
+    `https://sociald.onrender.com/api/users?userId=${userId}`
   );
   setUser(res.data);
 };
@@ -73,7 +66,7 @@ export const getUser = async (userId, setUser) => {
 export const getfriendList = async (userId, setFriends) => {
   try {
     const friendList = await axios.get(
-      "https://backenddofscocial-1.onrender.com/api/users/friends/" + userId
+      "https://sociald.onrender.com/api/users/friends/" + userId
     );
     setFriends(friendList.data);
   } catch (err) {
@@ -84,7 +77,7 @@ export const getfriendList = async (userId, setFriends) => {
 export const getUserByName = async (username, setUser) => {
   try {
     const res = await axios.get(
-      `https://backenddofscocial-1.onrender.com/api/users?username=${username}`
+      `https://sociald.onrender.com/api/users?username=${username}`
     );
     setUser(res.data);
   } catch (error) {
@@ -103,7 +96,7 @@ export const updateAvatar = async (
   try {
     upload(data);
     await axios.put(
-      `https://backenddofscocial-1.onrender.com/api/users/${userId}`,
+      `https://sociald.onrender.com/api/users/${userId}`,
       newUser
     );
     setUser((prevUser) => ({ ...prevUser, profilePicture: fileName }));
@@ -124,7 +117,7 @@ export const udpateCoverPicture = async (
   try {
     upload(data);
     await axios.put(
-      `https://backenddofscocial-1.onrender.com/api/users/${userId}`,
+      `https://sociald.onrender.com/api/users/${userId}`,
       newUser
     );
     setUser((prevUser) => ({ ...prevUser, coverPicture: fileName }));
@@ -137,8 +130,7 @@ export const udpateCoverPicture = async (
 export const getComments = async (postId, setComments) => {
   try {
     const res = await axios.get(
-      "https://backenddofscocial-1.onrender.com/api/comments/allComments/" +
-        postId
+      "https://sociald.onrender.com/api/comments/allComments/" + postId
     );
     setComments(res.data);
   } catch (error) {
@@ -153,7 +145,7 @@ export const postNewComment = async (
 ) => {
   try {
     const res = await axios.post(
-      "https://backenddofscocial-1.onrender.com/api/comments/",
+      "https://sociald.onrender.com/api/comments/",
       newCommentOfCurrentUser
     );
     setComments([...comments, res.data]);
@@ -170,7 +162,7 @@ export const deleteComment = async (
 ) => {
   try {
     await axios.delete(
-      `https://backenddofscocial-1.onrender.com/api/comments/${commentId}`,
+      `https://sociald.onrender.com/api/comments/${commentId}`,
       {
         data: { userId: currentUser._id, isAdmin: currentUser.isAdmin },
       }
@@ -190,7 +182,7 @@ export const updateComment = async (
 ) => {
   try {
     await axios.put(
-      `https://backenddofscocial-1.onrender.com/api/comments/${commentId}`,
+      `https://sociald.onrender.com/api/comments/${commentId}`,
       currentUser.isAdmin
         ? {
             isAdmin: currentUser.isAdmin,
@@ -217,8 +209,7 @@ export const updateComment = async (
 export const getAllComment = async (postId, setComments) => {
   try {
     const res = await axios.get(
-      "https://backenddofscocial-1.onrender.com/api/comments/allComments/" +
-        postId
+      "https://sociald.onrender.com/api/comments/allComments/" + postId
     );
     setComments(res.data);
   } catch (error) {
@@ -230,10 +221,10 @@ export const getAllComment = async (postId, setComments) => {
 export const getPost = async (username, userId, setPosts) => {
   const res = username
     ? await axios.get(
-        "https://backenddofscocial-1.onrender.com/api/posts/profile/" + username
+        "https://sociald.onrender.com/api/posts/profile/" + username
       )
     : await axios.get(
-        "https://backenddofscocial-1.onrender.com/api/posts/timeline/" + userId
+        "https://sociald.onrender.com/api/posts/timeline/" + userId
       );
   setPosts(res.data.reverse());
 };
@@ -241,7 +232,7 @@ export const getPost = async (username, userId, setPosts) => {
 export const likePost = async (userId, postId) => {
   try {
     await axios.put(
-      "https://backenddofscocial-1.onrender.com/api/posts/" + postId + "/like",
+      "https://sociald.onrender.com/api/posts/" + postId + "/like",
       {
         userId: userId,
       }
@@ -253,12 +244,9 @@ export const likePost = async (userId, postId) => {
 
 export const deletePost = async (postId, userId, isAdmin) => {
   try {
-    await axios.delete(
-      `https://backenddofscocial-1.onrender.com/api/posts/${postId}`,
-      {
-        data: { isAdmin: isAdmin, userId: userId },
-      }
-    );
+    await axios.delete(`https://sociald.onrender.com/api/posts/${postId}`, {
+      data: { isAdmin: isAdmin, userId: userId },
+    });
   } catch (err) {
     console.log(err);
   }
@@ -267,7 +255,7 @@ export const deletePost = async (postId, userId, isAdmin) => {
 export const updatePost = async (postId, newPost) => {
   try {
     await axios.put(
-      `https://backenddofscocial-1.onrender.com/api/posts/${postId}`,
+      `https://sociald.onrender.com/api/posts/${postId}`,
       newPost
     );
   } catch (error) {
@@ -282,7 +270,7 @@ export const createPost = async (
 ) => {
   try {
     const res = await axios.post(
-      "https://backenddofscocial-1.onrender.com/api/posts",
+      "https://sociald.onrender.com/api/posts",
       newPost
     );
     userPostData = [res.data, ...userPostData];
@@ -297,10 +285,7 @@ export const createPost = async (
 // upload
 export const upload = async (data) => {
   try {
-    await axios.post(
-      "https://backenddofscocial-1.onrender.com/api/upload",
-      data
-    );
+    await axios.post("https://sociald.onrender.com/api/upload", data);
     console.log("updateSuccess");
   } catch (err) {
     console.log(err);
@@ -310,9 +295,7 @@ export const upload = async (data) => {
 //deletefile
 export const deleteFile = async (fileName) => {
   try {
-    await axios.delete(
-      `https://backenddofscocial-1.onrender.com/api/delete/${fileName}`
-    );
+    await axios.delete(`https://sociald.onrender.com/api/delete/${fileName}`);
   } catch (err) {
     console.log(err);
   }

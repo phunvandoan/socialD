@@ -25,7 +25,7 @@ function ProfileRightbar({ user, friends }) {
           receiverId: user._id,
         };
         await axios.post(
-          `https://backenddofscocial-1.onrender.com/api/conversations/`,
+          `https://sociald.onrender.com/api/conversations/`,
           data
         );
       } catch (err) {
@@ -39,7 +39,7 @@ function ProfileRightbar({ user, friends }) {
     const handleCoversation = async () => {
       try {
         const res = await axios.get(
-          `https://backenddofscocial-1.onrender.com/api/conversations/${currentUser._id}`
+          `https://sociald.onrender.com/api/conversations/${currentUser._id}`
         );
         setConversation(res.data);
       } catch (err) {
@@ -53,7 +53,7 @@ function ProfileRightbar({ user, friends }) {
     if (window.confirm("you sure!!!")) {
       try {
         await axios.delete(
-          `https://backenddofscocial-1.onrender.com/api/users/${user._id}`,
+          `https://sociald.onrender.com/api/users/${user._id}`,
           {
             data: {
               isAdmin: currentUser.isAdmin,

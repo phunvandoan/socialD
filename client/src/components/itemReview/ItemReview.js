@@ -26,7 +26,7 @@ function ItemReview({ review, onDelete, onUpdate }) {
   const likeHandler = async () => {
     try {
       await axios.put(
-        `https://backenddofscocial-1.onrender.com/api/reviews/${review._id}/like`,
+        `https://sociald.onrender.com/api/reviews/${review._id}/like`,
         {
           userId: currentUser._id,
         }

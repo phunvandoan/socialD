@@ -24,7 +24,7 @@ function PlayListPage() {
     const getAllSong = async () => {
       try {
         const res = await axios.get(
-          `https://backenddofscocial-1.onrender.com/api/musics/allMusic`
+          `https://sociald.onrender.com/api/musics/allMusic`
         );
         setSongs(res.data.reverse());
         if (res.data.length > 0) {
@@ -51,10 +51,7 @@ function PlayListPage() {
       data.append("file", file);
       newMusic.url = fileName;
       try {
-        await axios.post(
-          "https://backenddofscocial-1.onrender.com/api/upload",
-          data
-        );
+        await axios.post("https://sociald.onrender.com/api/upload", data);
         console.log("updateSuccess");
       } catch (err) {
         console.log(err);
@@ -62,7 +59,7 @@ function PlayListPage() {
     }
     try {
       const res = await axios.post(
-        `https://backenddofscocial-1.onrender.com/api/musics`,
+        `https://sociald.onrender.com/api/musics`,
         newMusic
       );
       setSongs([res.data, ...songs]);
@@ -77,21 +74,16 @@ function PlayListPage() {
 
   const handleDelete = async (song) => {
     try {
-      await axios.delete(
-        `https://backenddofscocial-1.onrender.com/api/delete/${song.url}`
-      );
+      await axios.delete(`https://sociald.onrender.com/api/delete/${song.url}`);
     } catch (err) {
       console.log(err);
     }
     try {
-      axios.delete(
-        `https://backenddofscocial-1.onrender.com/api/musics/${song._id}`,
-        {
-          data: {
-            isAdmin: currentUser.isAdmin,
-          },
-        }
-      );
+      axios.delete(`https://sociald.onrender.com/api/musics/${song._id}`, {
+        data: {
+          isAdmin: currentUser.isAdmin,
+        },
+      });
       setSongs(songs.filter((r) => r._id !== song._id));
     } catch (err) {
       console.log(err);
@@ -113,7 +105,7 @@ function PlayListPage() {
       if (file) {
         try {
           await axios.delete(
-            `https://backenddofscocial-1.onrender.com/api/delete/${song.url}`
+            `https://sociald.onrender.com/api/delete/${song.url}`
           );
         } catch (err) {
           console.log(err);
@@ -124,10 +116,7 @@ function PlayListPage() {
         data.append("file", file);
         newMusic.url = fileName;
         try {
-          await axios.post(
-            "https://backenddofscocial-1.onrender.com/api/upload",
-            data
-          );
+          await axios.post("https://sociald.onrender.com/api/upload", data);
           console.log("updateSuccess");
         } catch (err) {
           console.log(err);
@@ -135,7 +124,7 @@ function PlayListPage() {
       }
       try {
         axios.put(
-          `https://backenddofscocial-1.onrender.com/api/musics/${song._id}`,
+          `https://sociald.onrender.com/api/musics/${song._id}`,
           newMusic
         );
         setSongs(
