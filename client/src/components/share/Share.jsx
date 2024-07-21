@@ -51,7 +51,7 @@ export default function Share({ sendDataToChildFromParent }) {
           <Link to={`/profile/${user.username}`}>
             <img
               className="shareProfileImg"
-              src={PF + userData.profilePicture}
+              src={PF + user.profilePicture}
               alt=""
             />
           </Link>

@@ -143,7 +143,7 @@ export default function Topbar() {
         </div>
         <Link to={`/profile/${currentUser.username}`}>
           <img
-            src={PF + userData.profilePicture}
+            src={PF + currentUser.profilePicture}
             alt=""
             className="topbarImg"
           />

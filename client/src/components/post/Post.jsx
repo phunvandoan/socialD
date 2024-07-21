@@ -149,11 +149,7 @@ export default function Post({ post, sendDataToChildFromParent }) {
             <Link to={`profile/${user.username}`}>
               <img
                 className="postProfileImg"
-                src={
-                  userData._id === user._id
-                    ? PF + userData.profilePicture
-                    : PF + user.profilePicture
-                }
+                src={user.profilePicture}
                 alt=""
               />
             </Link>
