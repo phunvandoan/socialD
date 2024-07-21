@@ -28,7 +28,7 @@ function Intro() {
       <div className="right">
         <div className="wrapper">
           <h2>Hi There, I'm</h2>
-          <h1>CodeCuaDoan</h1>
+          <h1>SocialD&T</h1>
           <h3>
             MyTeam_
             <span ref={textRef}></span>
