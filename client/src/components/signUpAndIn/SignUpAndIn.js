@@ -9,9 +9,6 @@ function SignUpAndIn({ children }) {
           <span className="loginDesc">
             Connect with friends and the world around you on SocialD.
           </span>
-          <span className="loginDesc">account demo 🥰🥰🥰</span>
-          <span className="loginDesc">tk: Luffy@gmail.com</span>
-          <span className="loginDesc">mk: Luffy@gmail.com</span>
         </div>
         <div className="loginRight">{children}</div>
       </div>

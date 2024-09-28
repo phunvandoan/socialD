@@ -27,6 +27,7 @@ import Career from "./pages/careers/Career";
 import Map from "./pages/map/Map";
 import Quiz from "./pages/quiz/Quiz";
 import Menu from "./pages/pageResponsive/menu/Menu";
+import DemoAccountPage from "./pages/accoutDemo/DemoAccountPage";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -111,6 +112,10 @@ function App() {
         <Route
           path="/menuResponsive"
           element={user ? <Menu /> : <Navigate to="/login" />}
+        ></Route>
+        <Route
+          path="/DemoAccount"
+          element={user ? <Navigate to="/" /> : <DemoAccountPage />}
         ></Route>
       </Routes>
     </Router>

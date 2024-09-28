@@ -48,7 +48,12 @@ function Login() {
             "Log In"
           )}
         </button>
-        <span className="loginForgot">Forgot Password?</span>
+        <Link
+          to="/DemoAccount"
+          style={{ margin: "0 auto", fontSize: "20px", fontStyle: "italic" }}
+        >
+          <span className="loginForgot">used account demo</span>
+        </Link>
         <Link
           to="/register"
           style={{

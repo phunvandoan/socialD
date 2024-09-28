@@ -1,6 +1,7 @@
 const io = require("socket.io")(8900, {
   cors: {
-    origin: "https://social-d.vercel.app",
+    origin: "http://localhost:3000",
+    // origin: "https://social-d.vercel.app",
   },
 });
 

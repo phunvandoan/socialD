@@ -12,7 +12,7 @@ function VideoPage() {
     const getAllPost = async () => {
       try {
         const res = await axios.get(
-          "https://sociald.onrender.com/api/posts/getPost/All"
+          "http://localhost:8800/api/posts/getPost/All"
         );
         setPosts(res.data);
       } catch (err) {

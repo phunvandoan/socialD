@@ -20,7 +20,8 @@ export default function Messenger() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("wss://sociald-2.onrender.com");
+    // socket.current = io("wss://sociald-2.onrender.com");
+    socket.current = io("wss://localhost:8900");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -55,7 +56,7 @@ export default function Messenger() {
     const getConversations = async () => {
       try {
         const res = await axios.get(
-          `https://sociald.onrender.com/api/conversations/${user._id}`
+          `http://localhost:8800/api/conversations/${user._id}`
         );
         setConversations(res.data);
       } catch (err) {
@@ -70,7 +71,7 @@ export default function Messenger() {
       if (currentChat) {
         try {
           const res = await axios.get(
-            `https://sociald.onrender.com/api/messages/${currentChat._id}`
+            `http://localhost:8800/api/messages/${currentChat._id}`
           );
           setMessages(res.data);
         } catch (err) {
@@ -101,7 +102,7 @@ export default function Messenger() {
 
     try {
       const res = await axios.post(
-        "https://sociald.onrender.com/api/messages",
+        "http://localhost:8800/api/messages",
         message
       );
       setMessages([...messages, res.data]);
