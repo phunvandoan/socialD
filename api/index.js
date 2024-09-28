@@ -25,8 +25,8 @@ mongoose.connect(process.env.LINK_DB);
 
 app.use(
   cors({
-    // origin: "https://social-d.vercel.app",
-    origin: "http://localhost:3000",
+    origin: "https://social-d.vercel.app",
+    // origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );

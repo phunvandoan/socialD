@@ -41,7 +41,9 @@ function GamePage() {
   useEffect(() => {
     const getAllGame = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/games/allGame`);
+        const res = await axios.get(
+          `https://sociald.onrender.com/api/games/allGame`
+        );
         setAllGame(res.data.reverse());
       } catch (err) {
         console.log(err);
@@ -58,7 +60,10 @@ function GamePage() {
       handle: handle.current.value,
     };
     try {
-      const res = await axios.post(`http://localhost:8800/api/games`, newGame);
+      const res = await axios.post(
+        `https://sociald.onrender.com/api/games`,
+        newGame
+      );
       setAllGame([res.data, ...allGame]);
     } catch (err) {
       console.log(err);
@@ -69,7 +74,7 @@ function GamePage() {
   const handleDeleteGame = useCallback(
     async (idGame) => {
       try {
-        await axios.delete(`http://localhost:8800/api/games/${idGame}`, {
+        await axios.delete(`https://sociald.onrender.com/api/games/${idGame}`, {
           data: {
             isAdmin: currentUser.isAdmin,
           },
@@ -95,7 +100,7 @@ function GamePage() {
         if (handle.current.value !== "") newGame.handle = handle.current.value;
         try {
           await axios.put(
-            `http://localhost:8800/api/games/${id_Game}`,
+            `https://sociald.onrender.com/api/games/${id_Game}`,
             newGame
           );
           setAllGame(
